@@ -14,31 +14,54 @@ class CountriesListScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text('Countries'),
       ),
-      body: countriesAsync.when(
-        data: (countries) => ListView.builder(
-          itemCount: countries.length,
-          itemBuilder: (context, index) {
-            final country = countries[index];
-            return ListTile(
-              leading: Text(country.emoji, style: TextStyle(fontSize: 24)),
-              title: Text(country.name),
-              subtitle: Text('Capital: ${country.capital}'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CountryDetailsScreen(country: country),
-                  )
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'search country...',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder()
+              ),
+              onChanged: (value) {
+                ref.read(searchQueryProvider.notifier).state = value;
+              },
+            ),
+          ),
+
+          Expanded(
+            child: countriesAsync.when(
+              data: (_) {
+                final filtered = ref.watch(filteredCountriesProvider);
+                return ListView.builder(
+                    itemCount: filtered.length,
+                    itemBuilder: (context, index) {
+                      final country = filtered[index];
+                      return ListTile(
+                        leading: Text(country.emoji, style: TextStyle(fontSize: 24)),
+                        title: Text(country.name),
+                        subtitle: Text('Capital: ${country.capital}'),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CountryDetailsScreen(country: country),
+                              )
+                          );
+                        },
+                      );
+                    }
                 );
               },
-            );
-          }
-        ),
-        loading: () => Center(child: CircularProgressIndicator()),
-        error: (error, stackTrace) {
-          return Center(child: Text('Error: $error'));
-        },
+              loading: () => Center(child: CircularProgressIndicator()),
+              error: (error, stackTrace) {
+                return Center(child: Text('Error: $error'));
+              },
 
+            ),
+          ),
+        ],
       ),
 
     );
