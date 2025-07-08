@@ -37,6 +37,7 @@ dependencies:
   flutter_riverpod: ^2.6.1
   graphql_flutter: ^5.2.0
   cached_network_image: ^3.4.1
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
