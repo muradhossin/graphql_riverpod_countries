@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_riverpod_countries/features/countries/presentation/countries_list_screen.dart';
+import 'package:graphql_riverpod_countries/features/home/presentation/home_screen.dart';
 
 void main() {
   runApp(ProviderScope(child: const MyApp()));
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'GraphQL Riverpod Countries',
-      home: CountriesListScreen(),
+      home: HomeScreen(),
     );
   }
 }
