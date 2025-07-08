@@ -13,9 +13,6 @@ class FavoritesScreen extends ConsumerWidget {
     final favorites = ref.watch(favoritesProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Favorites'),
-      ),
       body: countriesAsync.when(
         data: (countries) {
           final favoriteCountries = countries.where(

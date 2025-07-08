@@ -12,9 +12,6 @@ class CountriesListScreen extends ConsumerWidget {
     final countriesAsync = ref.watch(countriesProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Countries'),
-      ),
       body: Column(
         children: [
           Padding(
