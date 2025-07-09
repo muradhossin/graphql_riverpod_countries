@@ -27,11 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Consumer(
             builder: (context, ref, child) {
-              final isDark = ref.watch(isDarkModeProvider);
+              final isDark = ref.watch(themeProvider);
               return Switch(
                 value: isDark,
                 onChanged: (value) {
-                  ref.read(isDarkModeProvider.notifier).state = value;
+                  ref.read(themeProvider.notifier).toggle(value);
                 },
               );
             },

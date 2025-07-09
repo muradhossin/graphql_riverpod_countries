@@ -15,7 +15,7 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isDark = ref.watch(isDarkModeProvider);
+    final isDark = ref.watch(themeProvider);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
