@@ -1,22 +1,17 @@
-class Country {
-  final String code;
-  final String name;
-  final String capital;
-  final String emoji;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  Country({
-    required this.code,
-    required this.name,
-    required this.capital,
-    required this.emoji,
-  });
+part 'country_model.freezed.dart';
+part 'country_model.g.dart';
 
-  factory Country.fromJson(Map<String, dynamic> json) {
-    return Country(
-      code: json['code'],
-      name: json['name'],
-      capital: json['capital'] ?? '',
-      emoji: json['emoji'] ?? '',
-    );
-  }
+@freezed
+abstract class Country with _$Country {
+  factory Country({
+    required String code,
+    required String name,
+    required String capital,
+    required String emoji,
+  }) = _Country;
+
+  factory Country.fromJson(Map<String, dynamic> json) =>
+      _$CountryFromJson(json);
 }
