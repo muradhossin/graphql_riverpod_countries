@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Country {
 
- String get code; String get name; String get capital; String get emoji;
+ String? get code; String? get name; String? get capital; String? get emoji;
 /// Create a copy of Country
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CountryCopyWith<$Res>  {
   factory $CountryCopyWith(Country value, $Res Function(Country) _then) = _$CountryCopyWithImpl;
 @useResult
 $Res call({
- String code, String name, String capital, String emoji
+ String? code, String? name, String? capital, String? emoji
 });
 
 
@@ -65,13 +65,13 @@ class _$CountryCopyWithImpl<$Res>
 
 /// Create a copy of Country
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? code = null,Object? name = null,Object? capital = null,Object? emoji = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? code = freezed,Object? name = freezed,Object? capital = freezed,Object? emoji = freezed,}) {
   return _then(_self.copyWith(
-code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,capital: null == capital ? _self.capital : capital // ignore: cast_nullable_to_non_nullable
-as String,emoji: null == emoji ? _self.emoji : emoji // ignore: cast_nullable_to_non_nullable
-as String,
+code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,capital: freezed == capital ? _self.capital : capital // ignore: cast_nullable_to_non_nullable
+as String?,emoji: freezed == emoji ? _self.emoji : emoji // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String code,  String name,  String capital,  String emoji)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? code,  String? name,  String? capital,  String? emoji)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Country() when $default != null:
 return $default(_that.code,_that.name,_that.capital,_that.emoji);case _:
@@ -177,7 +177,7 @@ return $default(_that.code,_that.name,_that.capital,_that.emoji);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String code,  String name,  String capital,  String emoji)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? code,  String? name,  String? capital,  String? emoji)  $default,) {final _that = this;
 switch (_that) {
 case _Country():
 return $default(_that.code,_that.name,_that.capital,_that.emoji);case _:
@@ -197,7 +197,7 @@ return $default(_that.code,_that.name,_that.capital,_that.emoji);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String code,  String name,  String capital,  String emoji)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? code,  String? name,  String? capital,  String? emoji)?  $default,) {final _that = this;
 switch (_that) {
 case _Country() when $default != null:
 return $default(_that.code,_that.name,_that.capital,_that.emoji);case _:
@@ -212,13 +212,13 @@ return $default(_that.code,_that.name,_that.capital,_that.emoji);case _:
 @JsonSerializable()
 
 class _Country implements Country {
-   _Country({required this.code, required this.name, required this.capital, required this.emoji});
+   _Country({this.code, this.name, this.capital, this.emoji});
   factory _Country.fromJson(Map<String, dynamic> json) => _$CountryFromJson(json);
 
-@override final  String code;
-@override final  String name;
-@override final  String capital;
-@override final  String emoji;
+@override final  String? code;
+@override final  String? name;
+@override final  String? capital;
+@override final  String? emoji;
 
 /// Create a copy of Country
 /// with the given fields replaced by the non-null parameter values.
@@ -253,7 +253,7 @@ abstract mixin class _$CountryCopyWith<$Res> implements $CountryCopyWith<$Res> {
   factory _$CountryCopyWith(_Country value, $Res Function(_Country) _then) = __$CountryCopyWithImpl;
 @override @useResult
 $Res call({
- String code, String name, String capital, String emoji
+ String? code, String? name, String? capital, String? emoji
 });
 
 
@@ -270,13 +270,13 @@ class __$CountryCopyWithImpl<$Res>
 
 /// Create a copy of Country
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? code = null,Object? name = null,Object? capital = null,Object? emoji = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? code = freezed,Object? name = freezed,Object? capital = freezed,Object? emoji = freezed,}) {
   return _then(_Country(
-code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
-as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,capital: null == capital ? _self.capital : capital // ignore: cast_nullable_to_non_nullable
-as String,emoji: null == emoji ? _self.emoji : emoji // ignore: cast_nullable_to_non_nullable
-as String,
+code: freezed == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as String?,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String?,capital: freezed == capital ? _self.capital : capital // ignore: cast_nullable_to_non_nullable
+as String?,emoji: freezed == emoji ? _self.emoji : emoji // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 

@@ -31,8 +31,8 @@ class FavoritesScreen extends ConsumerWidget {
             itemBuilder: (context, index) {
               final country = favoriteCountries[index];
               return ListTile(
-                leading: Text(country.emoji, style: TextStyle(fontSize: 24)),
-                title: Text(country.name),
+                leading: Text(country.emoji ?? '', style: TextStyle(fontSize: 24)),
+                title: Text(country.name ?? ''),
                 subtitle: Text('Capital: ${country.capital}'),
                 onTap: () {
                   Navigator.push(

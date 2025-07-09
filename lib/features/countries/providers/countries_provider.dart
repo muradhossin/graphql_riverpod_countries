@@ -18,7 +18,7 @@ final filteredCountriesProvider = Provider<List<Country>>((ref) {
   return countriesAsync.maybeWhen(
     data: (countries) {
       if(query.isEmpty) return countries;
-      return countries.where((country) => country.name.toLowerCase().contains(query)).toList();
+      return countries.where((country) => country.name != null && country.name!.toLowerCase().contains(query)).toList();
     },
     orElse: () => [],
   );

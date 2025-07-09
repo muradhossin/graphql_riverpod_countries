@@ -8,12 +8,12 @@ class CountryDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(country.name)),
+      appBar: AppBar(title: Text(country.name ?? '')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(country.emoji, style: TextStyle(fontSize: 64)),
+            Text(country.emoji ?? '', style: TextStyle(fontSize: 64)),
             SizedBox(height: 16),
             Text('Capital: ${country.capital}', style: TextStyle(fontSize: 20)),
             SizedBox(height: 8),

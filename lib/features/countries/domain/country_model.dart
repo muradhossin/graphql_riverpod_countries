@@ -6,10 +6,10 @@ part 'country_model.g.dart';
 @freezed
 abstract class Country with _$Country {
   factory Country({
-    required String code,
-    required String name,
-    required String capital,
-    required String emoji,
+    String? code,
+    String? name,
+    String? capital,
+    String? emoji,
   }) = _Country;
 
   factory Country.fromJson(Map<String, dynamic> json) =>

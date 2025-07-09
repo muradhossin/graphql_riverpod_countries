@@ -39,8 +39,8 @@ class CountriesListScreen extends ConsumerWidget {
                       final favorites = ref.watch(favoritesProvider);
                       final isFavorite = favorites.contains(country.code);
                       return ListTile(
-                        leading: Text(country.emoji, style: TextStyle(fontSize: 24)),
-                        title: Text(country.name),
+                        leading: Text(country.emoji ?? '', style: TextStyle(fontSize: 24)),
+                        title: Text(country.name ?? ''),
                         subtitle: Text('Capital: ${country.capital}'),
                         trailing: IconButton(
                           icon: Icon(
@@ -48,7 +48,7 @@ class CountriesListScreen extends ConsumerWidget {
                             color: isFavorite ? Colors.red : null,
                           ),
                           onPressed: () {
-                            ref.read(favoritesProvider.notifier).toggleFavorite(country.code);
+                            ref.read(favoritesProvider.notifier).toggleFavorite(country.code ?? '');
                           },
                         ),
                         onTap: () {
