@@ -32,35 +32,40 @@ class CountriesListScreen extends ConsumerWidget {
             child: countriesAsync.when(
               data: (_) {
                 final filtered = ref.watch(filteredCountriesProvider);
-                return ListView.builder(
-                    itemCount: filtered.length,
-                    itemBuilder: (context, index) {
-                      final country = filtered[index];
-                      final favorites = ref.watch(favoritesProvider);
-                      final isFavorite = favorites.contains(country.code);
-                      return ListTile(
-                        leading: Text(country.emoji ?? '', style: TextStyle(fontSize: 24)),
-                        title: Text(country.name ?? ''),
-                        subtitle: Text('Capital: ${country.capital}'),
-                        trailing: IconButton(
-                          icon: Icon(
-                            isFavorite ? Icons.favorite : Icons.favorite_border,
-                            color: isFavorite ? Colors.red : null,
+                return RefreshIndicator(
+                  onRefresh: () async{
+                    ref.invalidate(countriesProvider);
+                  },
+                  child: ListView.builder(
+                      itemCount: filtered.length,
+                      itemBuilder: (context, index) {
+                        final country = filtered[index];
+                        final favorites = ref.watch(favoritesProvider);
+                        final isFavorite = favorites.contains(country.code);
+                        return ListTile(
+                          leading: Text(country.emoji ?? '', style: TextStyle(fontSize: 24)),
+                          title: Text(country.name ?? ''),
+                          subtitle: Text('Capital: ${country.capital}'),
+                          trailing: IconButton(
+                            icon: Icon(
+                              isFavorite ? Icons.favorite : Icons.favorite_border,
+                              color: isFavorite ? Colors.red : null,
+                            ),
+                            onPressed: () {
+                              ref.read(favoritesProvider.notifier).toggleFavorite(country.code ?? '');
+                            },
                           ),
-                          onPressed: () {
-                            ref.read(favoritesProvider.notifier).toggleFavorite(country.code ?? '');
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CountryDetailsScreen(country: country),
+                                )
+                            );
                           },
-                        ),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => CountryDetailsScreen(country: country),
-                              )
-                          );
-                        },
-                      );
-                    }
+                        );
+                      }
+                  ),
                 );
               },
               loading: () => Center(child: CircularProgressIndicator()),
