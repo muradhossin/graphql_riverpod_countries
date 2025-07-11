@@ -1,7 +1,5 @@
 # 🌍 GraphQL Riverpod Countries
 
-![CD](https://github.com/muradhossin/graphql_riverpod_countries/actions/workflows/release_cd.yml/badge.svg)
-
 A Flutter app showcasing **GraphQL** + **Riverpod** in action:  
 - Favorite countries  
 - Dark mode  
