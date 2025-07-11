@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:graphql_riverpod_countries/features/countries/presentation/countries_list_screen.dart';
 import 'package:graphql_riverpod_countries/features/home/presentation/home_screen.dart';
 
 import 'features/settings/providers/theme_provider.dart';
