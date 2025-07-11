@@ -22,23 +22,19 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
 
-      - name: Create tag
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git tag v${{ github.run_number }}
-          git push origin v${{ github.run_number }}
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+      # create tag + release
+      - name: Create Release
+        id: create_release
+        uses: peter-evans/create-release@v1
         with:
           tag_name: v${{ github.run_number }}
-          name: Release v${{ github.run_number }}
+          release_name: Release v${{ github.run_number }}
           body: |
             Automated release from CI/CD.
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          draft: false
+          prerelease: false
 
+      # upload APK to that release
       - name: Upload APK to Release
         uses: softprops/action-gh-release@v2
         with:
