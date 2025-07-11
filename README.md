@@ -1,16 +1,73 @@
-# graphql_riverpod_countries
+# 🌍 GraphQL Riverpod Countries
 
-A new Flutter project.
+![CD](https://github.com/muradhossin/graphql_riverpod_countries/actions/workflows/release_cd.yml/badge.svg)
 
-## Getting Started
+A Flutter app showcasing **GraphQL** + **Riverpod** in action:  
+- Favorite countries  
+- Dark mode  
+- Pull-to-refresh  
+- Clean architecture & state management  
+- Automated CI/CD with GitHub Actions
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+✅ Fetch countries data via GraphQL  
+✅ Manage state with Riverpod  
+✅ Save favorite countries (locally)  
+✅ Dark mode toggle with persisted state  
+✅ Pull-to-refresh to update data  
+✅ Automated build & release using GitHub Actions
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 📦 CI/CD
+
+This project uses **GitHub Actions** for:
+
+- ✅ **Continuous Integration (CI)**:  
+  - Every push / PR runs checks (build, tests)
+- ✅ **Continuous Deployment (CD)**:  
+  - Every new tag like `v1.0.0` automatically:
+    - Builds the release APK
+    - Creates a GitHub Release
+    - Uploads the APK as a downloadable asset
+
+The workflow file lives at:
+.github/workflows/release_cd.yml
+
+
+---
+
+## 📱 Download Latest APK
+
+> Every new release tag (e.g. `v1.0.0`) automatically builds & uploads a release APK.
+
+👉 [⬇ **Download latest APK from Releases**](https://github.com/muradhossin/graphql_riverpod_countries/releases/latest)
+
+*(Click “Assets” → download `app-release.apk`)*
+
+---
+
+## 🛠 Getting Started
+
+### Prerequisites
+
+- Flutter `3.32.5`  
+- Dart SDK  
+- IDE (VS Code / Android Studio)
+
+---
+
+### 🚀 Setup & Run
+
+```bash
+git clone https://github.com/muradhossin/graphql_riverpod_countries.git
+cd graphql_riverpod_countries
+
+flutter pub get
+flutter run
+
+🧪 Running Tests
+flutter test
