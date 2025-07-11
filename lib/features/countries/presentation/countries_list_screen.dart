@@ -72,7 +72,6 @@ class CountriesListScreen extends ConsumerWidget {
               error: (error, stackTrace) {
                 return Center(child: Text('Error: $error'));
               },
-
             ),
           ),
         ],
