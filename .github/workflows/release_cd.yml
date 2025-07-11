@@ -24,7 +24,7 @@ jobs:
 
       - name: Create GitHub Release
         id: create_release
-        uses: peter-evans/create-release@v1.6.3
+        uses: peter-evans/create-release@v1
         with:
           tag_name: v${{ github.run_number }}
           release_name: Release v${{ github.run_number }}
